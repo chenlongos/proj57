@@ -40,12 +40,13 @@ pro57/
 │   └── ACTDataset.py             # 数据加载和预处理
 ├── train.ipynb                   # 训练 Notebook
 ├── infer.ipynb                   # PC 端推理 Notebook（参考实现）
-└── demo_pro57/                   # 示例数据
-    ├── dataset/<user_id>/default/ # 训练数据集
+├── download_data.ipynb           # 模型和数据下载
+└── output/                   # 示例数据
+    ├── dataset/ # 训练数据集
     │   ├── data/                  # Parquet 数据文件
     │   ├── meta/stats.json        # 归一化统计量（QUANTILES）
     │   └── videos/                # JPEG 图像帧 (320×240)
-    └── train/<user_id>/default/
+    └── train/
         └── model.pt              # 预训练模型 checkpoint
 ```
 
@@ -67,7 +68,7 @@ jupyter notebook infer.ipynb   # 推理
 1. **模型导出** — PyTorch → ONNX（或其他中间格式）
 2. **模型优化**（可选）— 量化（INT8/FP16）、剪枝、知识蒸馏
 3. **平台适配** — 根据目标平台选择推理框架：
-   - QEMU: ONNX Runtime / 纯 C 推理
+   - QEMU: ONNX Runtime
    - RK3588: RKNN Toolkit2（ONNX → RKNN）
    - SG2002: Sophon TPU SDK（需重点优化内存占用）
 4. **StarryOS 交叉编译** — 配置交叉编译工具链，编写 CMake/Makefile

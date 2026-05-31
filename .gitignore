@@ -2,4 +2,5 @@ __pycache__/
 .idea/
 checkpoints/
 proj57_database&model/
-output
+output/
+.ipynb_checkpoints/
